@@ -3,7 +3,6 @@ package com.priyo.pigeon.viewmodel
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.priyo.newsapp.viewmodel.NewsViewModel
 import com.priyo.pigeon.model.repository.NewsRepository
 
 /**

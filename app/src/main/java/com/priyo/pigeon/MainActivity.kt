@@ -10,10 +10,10 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.priyo.pigeon.model.repository.NewsRepository
-import com.priyo.newsapp.viewmodel.NewsViewModel
-import com.priyo.pigeon.viewmodel.NewsViewModelProviderFactory
 import com.priyo.pigeon.databinding.ActivityMainBinding
+import com.priyo.pigeon.model.repository.NewsRepository
+import com.priyo.pigeon.viewmodel.NewsViewModel
+import com.priyo.pigeon.viewmodel.NewsViewModelProviderFactory
 
 class MainActivity : AppCompatActivity() {
 

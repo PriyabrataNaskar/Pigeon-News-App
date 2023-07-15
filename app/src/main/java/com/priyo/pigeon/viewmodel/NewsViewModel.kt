@@ -1,4 +1,4 @@
-package com.priyo.newsapp.viewmodel
+package com.priyo.pigeon.viewmodel
 
 import android.app.Application
 import android.content.Context
@@ -6,9 +6,10 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.*
 import android.util.Log
 import androidx.lifecycle.*
+import com.priyo.newsapp.util.Resource
+import com.priyo.pigeon.model.data.ArticleResponse
 import com.priyo.pigeon.model.data.BaseResponse
 import com.priyo.pigeon.model.repository.NewsRepository
-import com.priyo.newsapp.util.Resource
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -19,8 +20,8 @@ class NewsViewModel(
     val newsRepository: NewsRepository,
     application: Application,
 ) : AndroidViewModel(application) {
-    private val _topNews: MutableLiveData<Resource<BaseResponse>> = MutableLiveData()
-    val topNews: LiveData<Resource<BaseResponse>> get() = _topNews
+    private val _topNews: MutableLiveData<Resource<BaseResponse<ArticleResponse>>> = MutableLiveData()
+    val topNews: LiveData<Resource<BaseResponse<ArticleResponse>>> get() = _topNews
 
     private val _isInterNetAvailable: MutableLiveData<Boolean> = MutableLiveData()
     private val isInterNetAvailable: LiveData<Boolean> get() = _isInterNetAvailable
@@ -43,7 +44,7 @@ class NewsViewModel(
         }
     }
 
-    private fun handleTopNews(response: Response<BaseResponse>): Resource<BaseResponse> {
+    private fun handleTopNews(response: Response<BaseResponse<ArticleResponse>>): Resource<BaseResponse<ArticleResponse>> {
         if (response.isSuccessful) {
             response.body()?.let { responseResult ->
                 return Resource.Success(responseResult)

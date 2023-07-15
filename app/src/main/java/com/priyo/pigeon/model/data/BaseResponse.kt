@@ -1,7 +1,7 @@
 package com.priyo.pigeon.model.data
 
-data class BaseResponse(
-    val articles: List<ArticleResponse>,
+data class BaseResponse<T>(
+    val list: List<T>,
     val status: String,
     val totalResults: Int,
 )

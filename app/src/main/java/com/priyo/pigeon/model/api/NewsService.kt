@@ -1,5 +1,6 @@
 package com.priyo.pigeon.model.api
 
+import com.priyo.pigeon.model.data.ArticleResponse
 import com.priyo.pigeon.model.data.BaseResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -18,5 +19,5 @@ interface NewsService {
         @Query("apiKey") apiKey: String = "BuildConfig.API_KEY",
         @Query("page") pageNumber: Int = 1,
         @Query("country") countryCode: String = "us",
-    ): Response<BaseResponse>
+    ): Response<BaseResponse<ArticleResponse>>
 }

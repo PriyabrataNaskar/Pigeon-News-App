@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.priyo.pigeon.model.data.ArticleResponse
 import com.priyo.newsapp.util.Resource
-import com.priyo.newsapp.viewmodel.NewsViewModel
 import com.priyo.pigeon.adapter.NewsAdapter
 import com.priyo.pigeon.databinding.FragmentNewsListBinding
+import com.priyo.pigeon.model.data.ArticleResponse
+import com.priyo.pigeon.viewmodel.NewsViewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -59,8 +59,8 @@ class NewsListFragment : Fragment() {
                     hideProgressBar()
                     hideError()
                     response.data?.let {
-                        mAdapter = NewsAdapter(response.data.articles, requireContext())
-                        setRecyclerView(response.data.articles)
+                        mAdapter = NewsAdapter(response.data.list, requireContext())
+                        setRecyclerView(response.data.list)
                     }
                 }
 
