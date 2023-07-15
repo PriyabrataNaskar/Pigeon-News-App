@@ -38,6 +38,7 @@ android {
 dependencies {
 
     with(Modules) {
+        implementation(project(mapOf("path" to core)))
         implementation(project(mapOf("path" to coreNetwork)))
         implementation(project(mapOf("path" to newsDomain)))
     }
