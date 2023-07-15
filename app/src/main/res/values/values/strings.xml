@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Pigeon</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">News List</string>
+    <string name="second_fragment_label">News Details</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="author_name">Author Name</string>
+    <string name="post_time">2 hours ago</string>
+    <string name="news_image">News Image</string>
+
+    <string name="api_key">84a9ce0f3b9040bf8edf144d10a95708</string>
+</resources>

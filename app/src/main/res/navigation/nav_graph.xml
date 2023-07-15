@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/NewsListFragment">
+
+    <fragment
+        android:id="@+id/NewsListFragment"
+        android:name="com.priyo.pigeon.NewsListFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_news_list">
+
+        <action
+            android:id="@+id/action_NewsListFragment_to_NewsDetailsFragment"
+            app:destination="@id/NewsDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/NewsDetailsFragment"
+        android:name="com.priyo.pigeon.NewsDetailsFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_news_details">
+        <argument
+            android:name="authorName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="newsTitle"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="newsDescription"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="newsImageResource"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="newsPublishTime"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="content"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

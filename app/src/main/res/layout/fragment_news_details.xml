@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".view.NewsDetailsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/news_card_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            app:cardCornerRadius="4dp">
+
+            <ImageView
+                android:id="@+id/news_image_detail"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                tools:scaleType="centerCrop"
+                tools:src="@mipmap/ic_launcher" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <CheckBox
+            android:id="@+id/back_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="8dp"
+            android:button="@drawable/ic_arrow_back"
+            android:buttonTint="@color/brand_color" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/news_card_image"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/toolbar_color"
+            android:translationY="-20dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_text"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/merriweather"
+                    tools:text="Strong evidence found for a new force of NATURE" />
+
+                <TextView
+                    android:id="@+id/content_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/merriweather"
+                    android:textColor="#8c8c8c"
+                    tools:text="Content Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/news_meta_data"
+                        style="@style/TextAppearance.MaterialComponents.Overline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".8"
+                        android:fontFamily="@font/merriweather"
+                        android:textAllCaps="false"
+                        android:textColor="#4d4d4d"
+                        tools:text="by Author Name, 12.03.2021, 02:56 IST" />
+
+                    <CheckBox
+                        android:id="@+id/share_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".2"
+                        android:button="@drawable/ic_share"
+                        android:buttonTint="@color/brand_color"
+                        android:gravity="center_vertical|end" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/news_article_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merriweather"
+                    android:textColor="#262626"
+                    android:textSize="14sp"
+                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas elementum commodo. Proin urna nisi, facilisis nec sollicitudin ut, condimentum nec arcu. Quisque auctor velit at lorem suscipit, id accumsan est mollis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel hendrerit leo. Cras ut mollis lectus. Aenean nec nunc nec dui dignissim malesuada. Donec rhoncus mauris enim, nec accumsan ante pretium vitae. Maecenas metus turpis, pellentesque a euismod nec, finibus ut enim.
+Cras tincidunt nisl non justo tincidunt, eget fermentum massa sagittis. Maecenas ac nulla et tortor porttitor luctus. Mauris et auctor odio. Curabitur sit amet ornare quam. Phasellus eget enim feugiat, iaculis sapien efficitur, imperdiet nisl. Sed dignissim tincidunt dui, at egestas lacus faucibus iaculis. Quisque luctus et elit eget vestibulum. Aenean efficitur massa id posuere ultricies. Aliquam vel nibh vitae nisi pellentesque venenatis eget quis felis. Integer ut tincidunt nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+Mauris molestie tempor odio, quis dapibus nulla ornare ac. Phasellus fermentum sagittis elit ac rutrum. Nulla nulla felis, scelerisque a neque ut, sollicitudin dapibus nulla. Fusce sit amet facilisis leo. Nullam sollicitudin pharetra pretium. Nullam vel sapien quam. Suspendisse elementum, turpis vitae dapibus facilisis, mauris ex lobortis lorem, at laoreet nulla nunc et tellus. Integer rhoncus nulla vel ipsum sollicitudin, in rhoncus nibh vulputate. Suspendisse dictum sed magna vitae suscipit. Morbi sed justo consequat, consectetur velit ac, pharetra mi. Mauris fermentum, erat vel facilisis placerat, dui lorem tempus augue, sed gravida libero augue non lorem. Nullam nec pulvinar risus, vel laoreet est.
+Morbi sed justo consequat, consectetur velit ac, pharetra mi. Mauris fermentum, erat vel facilisis" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+</ScrollView>
