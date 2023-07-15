@@ -12,7 +12,7 @@ import dagger.hilt.components.SingletonComponent
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun bindIWishListSourceProviders(
-        wishListRepositoryImpl: NewsRepositoryImpl,
+    abstract fun bindNewsRepositoryProviders(
+        newsRepositoryImpl: NewsRepositoryImpl,
     ): NewsRepository
 }
