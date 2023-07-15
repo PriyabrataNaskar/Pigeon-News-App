@@ -1,7 +1,7 @@
-package com.priyo.core.di
+package com.priyo.core.domain.di
 
-import com.priyo.core.coroutine.CoroutineDispatcherProvider
-import com.priyo.core.coroutine.CoroutineDispatcherProviderImpl
+import com.priyo.core.domain.coroutine.CoroutineDispatcherProvider
+import com.priyo.core.domain.coroutine.CoroutineDispatcherProviderImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.priyo.core.coroutine
+package com.priyo.core.domain.coroutine
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
