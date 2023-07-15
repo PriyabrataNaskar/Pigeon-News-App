@@ -17,6 +17,9 @@
             <option value="$PROJECT_DIR$/base-module/core-network" />
             <option value="$PROJECT_DIR$/base-module/core-ui" />
             <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/news" />
+            <option value="$PROJECT_DIR$/features/news/data" />
           </set>
         </option>
       </GradleProjectSettings>
