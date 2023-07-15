@@ -1,4 +1,4 @@
-package com.priyo.corenetwork
+package com.priyo.core.result
 
 sealed class NetworkResult<out T> {
     data class Success<out T>(val data: T) : NetworkResult<T>()

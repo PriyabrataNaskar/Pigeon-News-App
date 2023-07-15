@@ -1,7 +1,7 @@
 package com.priyo.news.data.source.remotedatasource
 
+import com.priyo.core.result.NetworkResult
 import com.priyo.corenetwork.NetworkConstants.SOMETHING_WENT_WRONG
-import com.priyo.corenetwork.NetworkResult
 import com.priyo.corenetwork.safeApiCall
 import com.priyo.news.data.mapper.NewsMapper
 import com.priyo.news.data.source.service.NewsService
@@ -23,16 +23,16 @@ class NewsRemoteDataSourceImpl @Inject constructor(
             )
         }.onSuccess {
             it.let {
-                return NetworkResult.Success(
+                return com.priyo.core.result.NetworkResult.Success(
                     NewsMapper.toArticleList(it.list),
                 )
             }
         }.onFailure {
-            return NetworkResult.Error(
+            return com.priyo.core.result.NetworkResult.Error(
                 throwable = it,
             )
         }
-        return NetworkResult.Error(
+        return com.priyo.core.result.NetworkResult.Error(
             throwable = Exception(
                 SOMETHING_WENT_WRONG,
             ),
