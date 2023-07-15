@@ -29,8 +29,8 @@ class NewsResponseInstance {
                 .build()
         }
 
-        val apiInstance: NewsAPIInterface by lazy {
-            retrofit.create(NewsAPIInterface::class.java)
+        val apiInstance: NewsService by lazy {
+            retrofit.create(NewsService::class.java)
         }
     }
 }

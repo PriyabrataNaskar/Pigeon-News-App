@@ -14,12 +14,12 @@ import com.bumptech.glide.Glide
 import com.priyo.pigeon.NewsListFragmentDirections
 import com.priyo.pigeon.R
 import com.priyo.pigeon.databinding.ItemNewsCardBinding
-import com.priyo.pigeon.model.data.Article
+import com.priyo.pigeon.model.data.ArticleResponse
 
 /**
  * Created by Priyabrata Naskar on 04-04-2022.
  */
-class NewsAdapter(private val mNewsData: List<Article>, mContext: Context) :
+class NewsAdapter(private val mNewsData: List<ArticleResponse>, mContext: Context) :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     // Member variables.
     private val mContext: Context
@@ -35,7 +35,7 @@ class NewsAdapter(private val mNewsData: List<Article>, mContext: Context) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Get current news
-        val currentNews: Article = mNewsData[position]
+        val currentNews: ArticleResponse = mNewsData[position]
 
         // Populate the textViews with data.
         holder.bindTo(currentNews)
@@ -68,7 +68,7 @@ class NewsAdapter(private val mNewsData: List<Article>, mContext: Context) :
         }
 
         override fun onClick(view: View) {
-            val news: Article = mNewsData[adapterPosition]
+            val news: ArticleResponse = mNewsData[adapterPosition]
 
             val newsAuthorName: String? = news.author
             val newsTitle: String? = news.title
@@ -101,7 +101,7 @@ class NewsAdapter(private val mNewsData: List<Article>, mContext: Context) :
             }
         }
 
-        fun bindTo(currentNews: Article) {
+        fun bindTo(currentNews: ArticleResponse) {
             mNewsTitleText.text = currentNews.title
             mAuthorTitle.text = currentNews.author
             mDescription.text = currentNews.description

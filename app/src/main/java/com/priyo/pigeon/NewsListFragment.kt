@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.priyo.pigeon.model.data.Article
+import com.priyo.pigeon.model.data.ArticleResponse
 import com.priyo.newsapp.util.Resource
 import com.priyo.newsapp.viewmodel.NewsViewModel
 import com.priyo.pigeon.adapter.NewsAdapter
@@ -99,7 +99,7 @@ class NewsListFragment : Fragment() {
         binding.shimmerView.visibility = View.GONE
     }
 
-    private fun setRecyclerView(list: List<Article>) {
+    private fun setRecyclerView(list: List<ArticleResponse>) {
         // Initialize the RecyclerView.
         mRecyclerView = binding.recyclerView
         // Set the Layout Manager.
