@@ -9,9 +9,6 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.priyo.pigeon.databinding.FragmentNewsDetailsBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class NewsDetailsFragment : Fragment() {
     companion object {
         const val AUTHOR_NAME = "newsAuthorName"

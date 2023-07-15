@@ -1,6 +1,6 @@
 package com.priyo.pigeon.model.api
 
-import com.priyo.newsapp.util.Constants
+import com.priyo.pigeon.util.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

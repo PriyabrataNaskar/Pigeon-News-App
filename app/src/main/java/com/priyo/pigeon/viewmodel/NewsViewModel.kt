@@ -6,10 +6,10 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.*
 import android.util.Log
 import androidx.lifecycle.*
-import com.priyo.newsapp.util.Resource
 import com.priyo.pigeon.model.data.ArticleResponse
 import com.priyo.pigeon.model.data.BaseResponse
 import com.priyo.pigeon.model.repository.NewsRepository
+import com.priyo.pigeon.util.Resource
 import kotlinx.coroutines.launch
 import retrofit2.Response
 

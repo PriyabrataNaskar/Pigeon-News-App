@@ -1,4 +1,4 @@
-package com.priyo.newsapp.util
+package com.priyo.pigeon.util
 
 /**
  * Created by Priyabrata Naskar on 04-04-2022.

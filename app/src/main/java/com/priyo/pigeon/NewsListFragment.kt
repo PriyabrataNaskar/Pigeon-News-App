@@ -7,15 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.priyo.newsapp.util.Resource
 import com.priyo.pigeon.adapter.NewsAdapter
 import com.priyo.pigeon.databinding.FragmentNewsListBinding
 import com.priyo.pigeon.model.data.ArticleResponse
+import com.priyo.pigeon.util.Resource
 import com.priyo.pigeon.viewmodel.NewsViewModel
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 class NewsListFragment : Fragment() {
     companion object {
         const val TAG: String = "NewsListFragment"
