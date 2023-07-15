@@ -39,6 +39,7 @@ dependencies {
 
     with(Modules) {
         implementation(project(mapOf("path" to coreNetwork)))
+        implementation(project(mapOf("path" to newsDomain)))
     }
     with(Dependencies.Retrofit) {
         implementation(retrofit)
