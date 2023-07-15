@@ -23,16 +23,16 @@ class NewsRemoteDataSourceImpl @Inject constructor(
             )
         }.onSuccess {
             it.let {
-                return com.priyo.core.result.NetworkResult.Success(
+                return NetworkResult.Success(
                     NewsMapper.toArticleList(it.list),
                 )
             }
         }.onFailure {
-            return com.priyo.core.result.NetworkResult.Error(
+            return NetworkResult.Error(
                 throwable = it,
             )
         }
-        return com.priyo.core.result.NetworkResult.Error(
+        return NetworkResult.Error(
             throwable = Exception(
                 SOMETHING_WENT_WRONG,
             ),
