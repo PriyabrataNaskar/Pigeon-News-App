@@ -1,4 +1,4 @@
-package com.priyo.core.mvicore
+package com.priyo.coreui.mvi
 
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

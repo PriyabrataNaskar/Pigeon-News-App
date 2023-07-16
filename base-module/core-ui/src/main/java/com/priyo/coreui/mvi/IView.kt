@@ -1,4 +1,4 @@
-package com.priyo.core.mvicore
+package com.priyo.coreui.mvi
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.flowWithLifecycle
