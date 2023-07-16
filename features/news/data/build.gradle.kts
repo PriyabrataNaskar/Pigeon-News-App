@@ -48,6 +48,7 @@ dependencies {
         implementation(gsonConverter)
     }
     with(Dependencies.OkHttp) {
+        implementation(platform(okhttpBom))
         implementation(okhttp)
         implementation(loggingInterceptor)
     }

@@ -41,14 +41,17 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation(Dependencies.Navigation.navigationUIKtx)
-    implementation(Dependencies.Navigation.navigationFragmentKtx)
-    implementation(Dependencies.Navigation.navigationDynamicFeatureFragment)
+    with(Dependencies.Android) {
+        implementation(coreKtx)
+        implementation(appCompat)
+        implementation(viewmodelKtx)
+        implementation(lifecycleKtx)
+    }
+    with(Dependencies.Navigation) {
+        implementation(navigationUIKtx)
+        implementation(navigationFragmentKtx)
+        implementation(navigationDynamicFeatureFragment)
+    }
     implementation(Dependencies.Glide.glide)
     implementation(Dependencies.Shimmer.shimmer)
     implementation(Dependencies.Lottie.lottie)

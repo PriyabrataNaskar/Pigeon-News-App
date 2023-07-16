@@ -33,7 +33,9 @@ android {
 }
 
 dependencies {
-    implementation(Dependencies.Android.lifecycle)
+    implementation(Dependencies.Android.coreKtx)
+    implementation(Dependencies.Android.lifecycleKtx)
+
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-compiler:2.44")
 }

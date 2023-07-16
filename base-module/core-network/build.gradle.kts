@@ -35,20 +35,19 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.10.1")
+    implementation(Dependencies.Android.coreKtx)
 
-    // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.google.code.gson:gson:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    with(Dependencies.Retrofit) {
+        implementation(retrofit)
+        implementation(gson)
+        implementation(gsonConverter)
+    }
 
-    // OkHttp - define a BOM and its version
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
-
-    // Define any required OkHttp artifacts without version
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
-
+    with(Dependencies.OkHttp) {
+        implementation(platform(okhttpBom))
+        implementation(okhttp)
+        implementation(loggingInterceptor)
+    }
     // Hilt
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-compiler:2.44")
