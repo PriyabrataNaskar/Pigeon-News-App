@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/features/news" />
             <option value="$PROJECT_DIR$/features/news/data" />
             <option value="$PROJECT_DIR$/features/news/domain" />
+            <option value="$PROJECT_DIR$/features/news/ui" />
           </set>
         </option>
       </GradleProjectSettings>
