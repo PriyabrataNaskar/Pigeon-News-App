@@ -1,0 +1,56 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdk ProjectConfigs.compileSdk
+
+    defaultConfig {
+        minSdkVersion ProjectConfigs.minSdk
+        targetSdkVersion ProjectConfigs.targetSdk
+        versionName ProjectConfigs.versionName
+        versionCode ProjectConfigs.versionCode
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("credentials.properties").newDataInputStream())
+
+        buildConfigField("String", "CURRENT_APP_VERSION", "\"${defaultConfig.versionName}\"")
+        buildConfigField("int", "VERSION_CODE", "${defaultConfig.versionCode}")
+        buildConfigField("String", "VERSION_NAME", "\"${defaultConfig.versionName}\"")
+        buildConfigField "String", "NEWS_API_KEY", "\"${properties.getProperty("NEWS_API_KEY")}\""
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude("META-INF/AL2.0")
+        exclude("META-INF/LGPL2.1")
+        exclude("**/attach_hotspot_windows.dll")
+        exclude("META-INF/licenses/ASM")
+    }
+
+    kapt {
+        correctErrorTypes true
+    }
+}
+
+dependencies {
+    kapt 'com.google.dagger:hilt-compiler:2.44'
+    implementation 'com.google.dagger:hilt-android:2.44'
+}
