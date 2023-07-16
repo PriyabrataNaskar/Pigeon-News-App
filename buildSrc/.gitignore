@@ -1,4 +1,5 @@
 /build
 /build/classes
 /build/kotlin
+/build/kotlin/compileKotlin
 /.gradle
