@@ -13,12 +13,16 @@ android {
         versionCode ProjectConfigs.versionCode
 
         Properties properties = new Properties()
-        properties.load(project.rootProject.file("credentials.properties").newDataInputStream())
 
         buildConfigField("String", "CURRENT_APP_VERSION", "\"${defaultConfig.versionName}\"")
         buildConfigField("int", "VERSION_CODE", "${defaultConfig.versionCode}")
         buildConfigField("String", "VERSION_NAME", "\"${defaultConfig.versionName}\"")
+
+        properties.load(project.rootProject.file("credentials.properties").newDataInputStream())
         buildConfigField "String", "NEWS_API_KEY", "\"${properties.getProperty("NEWS_API_KEY")}\""
+
+        properties.load(project.rootProject.file("gradle.properties").newDataInputStream())
+        buildConfigField "String", "BASE_URL", "\"${properties.getProperty("BASE_URL")}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

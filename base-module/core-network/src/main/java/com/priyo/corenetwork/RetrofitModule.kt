@@ -2,7 +2,6 @@ package com.priyo.corenetwork
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.priyo.nests.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,7 +34,7 @@ object RetrofitModule {
     fun provideOkHttpClient(
         logging: HttpLoggingInterceptor,
     ): OkHttpClient {
-        return if (true) {
+        return if (BuildConfig.DEBUG) {
             OkHttpClient.Builder()
                 .readTimeout(DEFAULT_READ_TIMEOUT_IN_SEC, TimeUnit.SECONDS)
                 .connectTimeout(
