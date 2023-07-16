@@ -5,4 +5,5 @@ object Modules {
     const val coreNetwork = ":base-module:core-network"
     const val newsData = ":features:news:data"
     const val newsDomain = ":features:news:domain"
+    const val newsUi = ":features:news:ui"
 }

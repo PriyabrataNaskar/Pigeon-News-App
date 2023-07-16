@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs.kotlin")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
@@ -33,6 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -42,6 +46,13 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+    implementation(Dependencies.Navigation.navigationUIKtx)
+    implementation(Dependencies.Navigation.navigationFragmentKtx)
+    implementation(Dependencies.Navigation.navigationDynamicFeatureFragment)
+    implementation(Dependencies.Glide.glide)
+    implementation(Dependencies.Shimmer.shimmer)
+    implementation(Dependencies.Lottie.lottie)
+
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-compiler:2.44")
     testImplementation("junit:junit:4.13.2")
