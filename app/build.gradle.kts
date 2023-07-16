@@ -82,6 +82,14 @@ dependencies {
 
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-compiler:2.44")
+    with(Modules) {
+        implementation(project(mapOf("path" to core)))
+        implementation(project(mapOf("path" to coreUi)))
+        implementation(project(mapOf("path" to coreNetwork)))
+        implementation(project(mapOf("path" to newsData)))
+        implementation(project(mapOf("path" to newsDomain)))
+        implementation(project(mapOf("path" to newsUi)))
+    }
 
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
     testImplementation("junit:junit:4.13.2")
