@@ -54,9 +54,7 @@ class FetchTopNewsUseCase @Inject constructor(
         }.catch {
             emit(
                 UiResult.Error(
-                    Exception(
-                        message = SOMETHING_WENT_WRONG,
-                    ),
+                    Exception(SOMETHING_WENT_WRONG),
                 ),
             )
         }.flowOn(coroutineContextController.dispatcherIO)
