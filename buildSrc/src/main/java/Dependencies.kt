@@ -2,16 +2,19 @@ object Dependencies {
 
     object Android {
         private const val coreKtxVersion = "1.10.1"
-        private const val lifecycleVersion = "2.3.1"
+        private const val lifecycleVersion = "2.6.1"
         private const val activityComposeVersion = "1.5.1"
         private const val materialDesigningVersion = "1.9.0"
         private const val constraintLayoutVersion = "2.1.4"
+        private const val appCompatVersion = "1.6.1"
 
         const val coreKtx = "androidx.core:core-ktx:$coreKtxVersion"
-        const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+        const val lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+        const val viewmodelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
         const val activityCompose = "androidx.activity:activity-compose:$activityComposeVersion"
         const val materialDesigning = "com.google.android.material:material:$materialDesigningVersion"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+        const val appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
     }
 
     object Retrofit {
@@ -37,12 +40,12 @@ object Dependencies {
     }
 
     object Lottie {
-        private const val lottieVersion = "6.0.0"
+        private const val lottieVersion = "6.0.1"
         const val lottie = "com.airbnb.android:lottie:$lottieVersion"
     }
 	
     object Navigation {
-        private const val navigationVersion = "2.5.3"
+        private const val navigationVersion = "2.6.0"
         const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
         const val navigationUIKtx = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
         const val navigationDynamicFeatureFragment = "androidx.navigation:navigation-dynamic-features-fragment:$navigationVersion"
@@ -57,7 +60,7 @@ object Dependencies {
     }
 
     object Glide {
-        private const val glideVersion = "4.13.0"
+        private const val glideVersion = "4.15.1"
 
         const val glide = "com.github.bumptech.glide:glide:$glideVersion"
     }
