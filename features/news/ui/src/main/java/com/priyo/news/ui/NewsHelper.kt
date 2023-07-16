@@ -13,7 +13,7 @@ sealed class NewsState : IState {
     object Idle : NewsState()
     object Loading : NewsState()
     data class Error(val message: String) : NewsState()
-    data class Init(val filters: List<Article>) : NewsState()
+    data class Init(val articles: List<Article>) : NewsState()
 }
 
 sealed class NewsIntent : IIntent {
