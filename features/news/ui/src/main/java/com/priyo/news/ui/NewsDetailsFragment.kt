@@ -1,4 +1,4 @@
-package com.priyo.pigeon
+package com.priyo.news.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.priyo.pigeon.databinding.FragmentNewsDetailsBinding
+import com.priyo.news.ui.databinding.FragmentNewsDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class NewsDetailsFragment : Fragment() {
+@AndroidEntryPoint
+class NewsDetailsFragment @Inject constructor() : Fragment() {
     companion object {
         const val AUTHOR_NAME = "newsAuthorName"
         const val NEWS_TITLE = "newsTitle"

@@ -1,26 +1,26 @@
-package com.priyo.pigeon
+package com.priyo.news.ui
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.priyo.pigeon.databinding.ActivityMainBinding
-import com.priyo.pigeon.model.repository.NewsRepository
-import com.priyo.pigeon.viewmodel.NewsViewModel
-import com.priyo.pigeon.viewmodel.NewsViewModelProviderFactory
+import com.priyo.news.ui.databinding.ActivityMainBinding
+import com.priyo.news.ui.viewmodel.NewsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
-    lateinit var viewModel: NewsViewModel
+    private val viewModel: NewsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,11 +34,6 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-        // view model and repository
-        val newsRepository = NewsRepository()
-        val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository, application)
-        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/NewsListFragment"
-        android:name="com.priyo.pigeon.NewsListFragment"
+        android:name="com.priyo.news.ui.NewsListFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_news_list">
 
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/NewsDetailsFragment"
-        android:name="com.priyo.pigeon.NewsDetailsFragment"
+        android:name="com.priyo.news.ui.NewsDetailsFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_news_details">
         <argument

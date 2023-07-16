@@ -1,4 +1,4 @@
-package com.priyo.pigeon.adapter
+package com.priyo.news.ui.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -11,15 +11,14 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.priyo.pigeon.NewsListFragmentDirections
-import com.priyo.pigeon.R
-import com.priyo.pigeon.databinding.ItemNewsCardBinding
-import com.priyo.pigeon.model.data.ArticleResponse
+import com.priyo.news.domain.model.Article
+import com.priyo.news.ui.R
+import com.priyo.news.ui.databinding.ItemNewsCardBinding
 
 /**
  * Created by Priyabrata Naskar on 04-04-2022.
  */
-class NewsAdapter(private val mNewsData: List<ArticleResponse>, mContext: Context) :
+class NewsAdapter(private val mNewsData: List<Article>, mContext: Context) :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     // Member variables.
     private val mContext: Context
@@ -35,7 +34,7 @@ class NewsAdapter(private val mNewsData: List<ArticleResponse>, mContext: Contex
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Get current news
-        val currentNews: ArticleResponse = mNewsData[position]
+        val currentNews: Article = mNewsData[position]
 
         // Populate the textViews with data.
         holder.bindTo(currentNews)
@@ -68,7 +67,7 @@ class NewsAdapter(private val mNewsData: List<ArticleResponse>, mContext: Contex
         }
 
         override fun onClick(view: View) {
-            val news: ArticleResponse = mNewsData[adapterPosition]
+            val news: Article = mNewsData[adapterPosition]
 
             val newsAuthorName: String? = news.author
             val newsTitle: String? = news.title
@@ -80,7 +79,7 @@ class NewsAdapter(private val mNewsData: List<ArticleResponse>, mContext: Contex
             if (view.id == itemView.id) {
                 // Create an nav direction with a destination
 //                // Add the news details to the nav direction
-                val action = NewsListFragmentDirections.actionNewsListFragmentToNewsDetailsFragment(
+                /*val action = NewsListFragmentDirections.actionNewsListFragmentToNewsDetailsFragment(
                     authorName = newsAuthorName,
                     newsTitle = newsTitle,
                     newsDescription = newsDescription,
@@ -88,7 +87,7 @@ class NewsAdapter(private val mNewsData: List<ArticleResponse>, mContext: Contex
                     newsPublishTime = newsPublishTime,
                     content = content,
                 )
-                view.findNavController().navigate(action)
+                view.findNavController().navigate(action)*/
             } else if (view.id == shareButton.id) {
                 val shareIntent = Intent(Intent.ACTION_SEND)
 
@@ -101,7 +100,7 @@ class NewsAdapter(private val mNewsData: List<ArticleResponse>, mContext: Contex
             }
         }
 
-        fun bindTo(currentNews: ArticleResponse) {
+        fun bindTo(currentNews: Article) {
             mNewsTitleText.text = currentNews.title
             mAuthorTitle.text = currentNews.author
             mDescription.text = currentNews.description
