@@ -1,2 +1,4 @@
 /build
+/build/classes
+/build/kotlin
 /.gradle
