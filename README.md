@@ -9,7 +9,7 @@ Pigeon - Multi-Module News App, built with MVI, Clean Architecture, Kotlin❣️
 
 ### Design
 #### Home Screen
-![Home Screen](https://github.com/PriyabrataNaskar/Pigeon-News-App/blob/develop/screenshots/home-page.jpg)
+![Home Screen](https://ibb.co/Kjc74d0)
 #### News Details 
 ![News Details Screen](https://github.com/PriyabrataNaskar/Pigeon-News-App/blob/develop/screenshots/news-details.jpg)
 
