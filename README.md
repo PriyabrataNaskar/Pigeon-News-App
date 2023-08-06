@@ -13,6 +13,13 @@ Pigeon - Multi-Module News App, built with MVI, Clean Architecture, Kotlin❣️
 
 [Figma Prototype](https://www.figma.com/proto/0hqmot7drKti1znfOZV4Q1/News-App?node-id=6%3A81&scaling=scale-down&page-id=0%3A1&starting-point-node-id=6%3A81)
 
+
+### Module-Diagram
+![Multi-Module Structure](https://github.com/PriyabrataNaskar/Pigeon-News-App/blob/develop/screenshots/multi-module.jpg)
+
+### Architecture-Diagram: MVI
+![MVI](https://github.com/PriyabrataNaskar/Pigeon-News-App/blob/develop/screenshots/mvi.jpg)
+
 ### API
 
 All the news are fetched from the news api. If you're cloning this project in your own machine don't forget to modify the ```API KEY```. You will get a new API Key on the [NEWS API](https://newsapi.org) website
