@@ -1,14 +1,6 @@
 # Pigeon-News-App
 Pigeon - Multi-Module News App, built with MVI, Clean Architecture, Kotlin❣️
 
-## Getting Started
-
-To get started with this project, you'll need to clone the repository and open it in Android Studio. From there, you can start exploring the code and making changes as needed.
-
-## Usage
-
-This project can be used as a template for other developers who want to learn Multi-Module with MVI & Clean Architecture.
-
 ## Features
 
 - Skim through Top Headlines in a RecyclerView
@@ -65,6 +57,7 @@ All the news are fetched from the news api. If you're cloning this project in yo
 ### Libraries & Tools
 
 - MVI with Clean Architecture: Simplify state management + Better Re-usability
+- Hilt: Dependency Injection Framework on Android on top of Dagger
 - Navigation Components + Safe Args: Simplified navigation between fragments with the help of generated code. Safe-Args gradle plugin simplifies the process of sending data between fragments with null check support.
 - Kotlin❣️: There's no second thought of other languages
 - Build Src + Kotlin DSL: Easy to manage dependency in Multi-Module
@@ -74,6 +67,18 @@ All the news are fetched from the news api. If you're cloning this project in yo
 - [Retrofit](https://square.github.io/retrofit/): Simplify Network Calls on background thread
 - Lottie: Play animation on the error screen or when the Internet is Unavailable
 - [GSON Library](https://github.com/google/gson): Converting JSON to POJO/Kotlin Data Class & vice-versa
+
+## Getting Started
+
+- To get started with this project, you'll need to clone the repository and open it in Android Studio.
+- Make sure you're using updated Android Studio to support Android Gradle Plugin 8 above.
+- Create a file on root directory: ```credentials.properties``` and add ```NEWS_API_KEY= YOUR_API_KEY```
+- Sync & Build Project
+- You should be able to build the APK on your local machine
+
+## Usage
+
+This project can be used as a template for other developers who want to learn Multi-Module with MVI & Clean Architecture.
 
 ## Contributing
 
