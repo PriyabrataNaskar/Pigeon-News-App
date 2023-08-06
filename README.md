@@ -9,19 +9,18 @@ Pigeon - Multi-Module News App, built with MVI, Clean Architecture, Kotlin❣️
 
 ### Design
 #### Home Screen
-<img src="https://i.ibb.co/kgV0bjH/Home-Page-Horizontal.jpg" width="128" alt= "Home Screen"/>
+<img src="https://i.ibb.co/kgV0bjH/Home-Page-Horizontal.jpg" width="256" alt= "Home Screen"/>
 
 #### News Details 
-![News Details Screen](https://github.com/PriyabrataNaskar/Pigeon-News-App/blob/develop/screenshots/news-details.jpg)
+<img src="https://i.ibb.co/12J49mM/News-Detail-Page-Horizontal.jpg" width="256" alt= "News Details Screen"/>
 
 [Figma Prototype](https://www.figma.com/proto/0hqmot7drKti1znfOZV4Q1/News-App?node-id=6%3A81&scaling=scale-down&page-id=0%3A1&starting-point-node-id=6%3A81)
 
-
 ### Module-Diagram
-![Multi-Module Structure](https://github.com/PriyabrataNaskar/Pigeon-News-App/blob/develop/screenshots/multi-module.jpg)
+<img src="https://i.ibb.co/RpL2YV0/Multi-module.jpg" width="256" alt= "Multi-Module"/>
 
 ### Architecture-Diagram: MVI
-![MVI](https://github.com/PriyabrataNaskar/Pigeon-News-App/blob/develop/screenshots/mvi.jpg)
+<img src="https://i.ibb.co/n7R1Xm8/mvi.jpg" width="256" alt= "MVI"/>
 
 ### API
 
