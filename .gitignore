@@ -9,7 +9,8 @@
 /.idea/assetWizardSettings.xml
 /.idea/vcs.xml
 /.idea
-/.idea/
+/.idea/kotlinc.xml
+/.idea/misc.xml
 .DS_Store
 /build
 /captures
