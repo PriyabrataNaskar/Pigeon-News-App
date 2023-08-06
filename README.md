@@ -63,16 +63,15 @@ All the news are fetched from the news api. If you're cloning this project in yo
 ### Libraries & Tools
 
 - MVI with Clean Architecture: Simplify state management + Better Re-usability
-- Navigation Components for navigating between fragments
-- Safe Args to pass data b/w fragments
+- Navigation Components + Safe Args: Simplified navigation between fragments with the help of generated code. Safe-Args gradle plugin simplifies the process of sending data between fragments with null check support.
 - Kotlin❣️: There's no second thought of other languages
 - Build Src + Kotlin DSL: Easy to manage dependency in Multi-Module
-- Single Activity Architecture: Using only one activity to host all the fragments. This simplifies using nav-graph  
-- [Glide](https://github.com/bumptech/glide) Easy to load images over the internet
-- [Shimmer](https://github.com/facebook/shimmer-android) Library by Facebook for loading effect. Help to improve user-experience.
-- [Retrofit](https://square.github.io/retrofit/) Simplify Network Calls on background thread
+- Single Activity Architecture: Using only one activity to host all the fragments. This simplifies using nav-graph.
+- [Glide](https://github.com/bumptech/glide): Easy to load images over the internet
+- [Shimmer](https://github.com/facebook/shimmer-android): Library by Facebook for loading effect. Help to improve user-experience.
+- [Retrofit](https://square.github.io/retrofit/): Simplify Network Calls on background thread
 - Lottie: Play animation on the error screen or when the Internet is Unavailable
-- [GSON Library](https://github.com/google/gson)Converting JSON to POJO & vice-versa
+- [GSON Library](https://github.com/google/gson): Converting JSON to POJO/Kotlin Data Class & vice-versa
 
 ## Contributing
 
