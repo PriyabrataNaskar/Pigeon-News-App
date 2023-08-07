@@ -13,7 +13,11 @@
 
         <action
             android:id="@+id/action_NewsListFragment_to_NewsDetailsFragment"
-            app:destination="@id/NewsDetailsFragment" />
+            app:destination="@id/NewsDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
 
     <fragment
@@ -22,28 +26,9 @@
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_news_details">
         <argument
-            android:name="authorName"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="newsTitle"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="newsDescription"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="newsImageResource"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="newsPublishTime"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="content"
-            app:argType="string"
-            app:nullable="true" />
+            android:name="article"
+            app:argType="com.priyo.news.domain.model.Article"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
 </navigation>
