@@ -8,7 +8,7 @@ import com.priyo.news.domain.model.Article
 /**
  * Created by Priyabrata Naskar on 04-04-2022.
  */
-class NewsAdapter() : RecyclerView.Adapter<NewsViewHolder>() {
+class NewsAdapter : RecyclerView.Adapter<NewsViewHolder>() {
 
     var onItemClick: ((Article, Int) -> Unit)? = null
     var onShareItemClick: ((Article) -> Unit)? = null

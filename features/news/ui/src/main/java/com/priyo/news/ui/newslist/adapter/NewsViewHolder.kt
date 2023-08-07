@@ -33,11 +33,11 @@ class NewsViewHolder(
     }
 
     fun bindData(article: Article, position: Int) {
-        setView(article)
+        setContent(article)
         setOnClickListener(article, position)
     }
 
-    private fun setView(article: Article) {
+    private fun setContent(article: Article) {
         with(binding) {
             newsTitle.text = article.title
             authorNameText.text = article.author

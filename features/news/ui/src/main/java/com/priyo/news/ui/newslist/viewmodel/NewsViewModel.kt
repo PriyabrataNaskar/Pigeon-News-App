@@ -93,5 +93,4 @@ class NewsViewModel @Inject constructor(
             _uiState.emit(NewsState.Idle)
         }
     }
-
 }

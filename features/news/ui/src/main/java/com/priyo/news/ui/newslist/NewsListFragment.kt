@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -33,7 +33,7 @@ class NewsListFragment @Inject constructor() :
     private val binding get() = _binding!!
 
     private val newsAdapter by lazy { NewsAdapter() }
-    private val viewModel: NewsViewModel by activityViewModels()
+    private val viewModel: NewsViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -108,7 +108,7 @@ class NewsListFragment @Inject constructor() :
         }
     }
 
-    private fun setRecyclerView(list: List<Article>) {
+    private fun setArticles(list: List<Article>) {
         newsAdapter.setData(list)
     }
 
@@ -122,7 +122,7 @@ class NewsListFragment @Inject constructor() :
             is NewsState.Init -> {
                 hideProgressBar()
                 hideError()
-                setRecyclerView(state.articles)
+                setArticles(state.articles)
             }
 
             is NewsState.Error -> {
