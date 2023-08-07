@@ -1,4 +1,4 @@
-package com.priyo.news.ui.viewmodel
+package com.priyo.news.ui.newslist.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,9 +6,9 @@ import com.priyo.core.domain.ErrorConstants.SOMETHING_WENT_WRONG
 import com.priyo.core.result.UiResult
 import com.priyo.coreui.mvi.IModel
 import com.priyo.news.domain.usecase.FetchTopNewsUseCase
-import com.priyo.news.ui.NewsEffect
-import com.priyo.news.ui.NewsIntent
-import com.priyo.news.ui.NewsState
+import com.priyo.news.ui.newslist.NewsEffect
+import com.priyo.news.ui.newslist.NewsIntent
+import com.priyo.news.ui.newslist.NewsState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

@@ -1,4 +1,4 @@
-package com.priyo.news.ui.adapter
+package com.priyo.news.ui.newslist.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.priyo.news.domain.model.Article

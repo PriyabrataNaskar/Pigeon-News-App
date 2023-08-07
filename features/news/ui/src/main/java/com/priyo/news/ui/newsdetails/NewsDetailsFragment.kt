@@ -1,4 +1,4 @@
-package com.priyo.news.ui
+package com.priyo.news.ui.newsdetails
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.priyo.news.domain.model.Article
+import com.priyo.news.ui.R
 import com.priyo.news.ui.databinding.FragmentNewsDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

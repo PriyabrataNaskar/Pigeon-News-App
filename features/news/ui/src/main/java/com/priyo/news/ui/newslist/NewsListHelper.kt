@@ -1,4 +1,4 @@
-package com.priyo.news.ui
+package com.priyo.news.ui.newslist
 
 import com.priyo.coreui.mvi.IEffect
 import com.priyo.coreui.mvi.IIntent

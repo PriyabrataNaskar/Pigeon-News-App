@@ -1,4 +1,4 @@
-package com.priyo.news.ui.adapter
+package com.priyo.news.ui.newslist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -11,7 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.priyo.news.ui.databinding.ActivityMainBinding
-import com.priyo.news.ui.viewmodel.NewsViewModel
+import com.priyo.news.ui.newslist.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

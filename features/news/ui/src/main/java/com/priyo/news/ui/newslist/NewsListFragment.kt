@@ -1,4 +1,4 @@
-package com.priyo.news.ui
+package com.priyo.news.ui.newslist
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,9 +14,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.priyo.coreui.mvi.MVIView
 import com.priyo.news.domain.model.Article
-import com.priyo.news.ui.adapter.NewsAdapter
 import com.priyo.news.ui.databinding.FragmentNewsListBinding
-import com.priyo.news.ui.viewmodel.NewsViewModel
+import com.priyo.news.ui.newslist.adapter.NewsAdapter
+import com.priyo.news.ui.newslist.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -129,6 +129,7 @@ class NewsListFragment @Inject constructor() :
                 showError()
                 hideProgressBar()
                 state.message.let { message ->
+                    // todo: show error snackbar
                 }
             }
 
