@@ -6,43 +6,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.priyo.news.domain.model.Article
 import com.priyo.news.ui.databinding.FragmentNewsDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class NewsDetailsFragment @Inject constructor() : Fragment() {
-    companion object {
-        const val AUTHOR_NAME = "newsAuthorName"
-        const val NEWS_TITLE = "newsTitle"
-        const val NEWS_DESCRIPTION = "newsDescription"
-        const val NEWS_IMAGE_RESOURCE = "newsImageResource"
-        const val NEWS_PUBLISH_TIME = "newsPublishTime"
-        const val CONTENT = "content"
-    }
 
     private var _binding: FragmentNewsDetailsBinding? = null
-
-    private var newsAuthorName: String? = null
-    private var newsTitle: String? = null
-    private var newsDescription: String? = null
-    private var newsImageResource: String? = null
-    private var newsPublishTime: String? = null
-    private var content: String? = null
+    private val args: NewsDetailsFragmentArgs by navArgs()
+    private lateinit var article: Article
 
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            newsAuthorName = it.getString(AUTHOR_NAME)
-            newsTitle = it.getString(NEWS_TITLE)
-            newsDescription = it.getString(NEWS_DESCRIPTION)
-            newsImageResource = it.getString(NEWS_IMAGE_RESOURCE)
-            newsPublishTime = it.getString(NEWS_PUBLISH_TIME)
-            content = it.getString(CONTENT)
+        args.article?.let {
+            this.article = it
         }
     }
 
@@ -58,8 +42,10 @@ class NewsDetailsFragment @Inject constructor() : Fragment() {
 
             // Intent shareIntent = new Intent();
             shareIntent.type = "text/plain"
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "$newsTitle \nDescription:$newsDescription \nby- $newsAuthorName $newsImageResource")
-            // shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            shareIntent.putExtra(
+                Intent.EXTRA_TEXT,
+                "${article.title} \nDescription:${article.description} \nby- ${article.author} ${article.urlToImage}",
+            )
             context?.startActivity(Intent.createChooser(shareIntent, "Share News With"))
         }
         return binding.root
@@ -67,11 +53,19 @@ class NewsDetailsFragment @Inject constructor() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.titleText.text = newsTitle
-        binding.contentDescription.text = newsDescription
-        binding.newsArticleText.text = content
-        binding.newsMetaData.text = "$newsAuthorName $newsPublishTime"
-        Glide.with(this).load(newsImageResource).centerCrop().placeholder(R.drawable.ic_placeholder_image).centerCrop().into(binding.newsImageDetail)
+        setInitialUI()
+    }
+
+    private fun setInitialUI() {
+        binding.apply {
+            titleText.text = article.title
+            contentDescription.text = article.description
+            newsArticleText.text = article.content
+            newsMetaData.text = "${article.author} ${article.publishedAt}"
+            Glide.with(binding.root.context).load(article.urlToImage).centerCrop()
+                .placeholder(R.drawable.ic_placeholder_image).centerCrop()
+                .into(newsImageDetail)
+        }
     }
 
     override fun onDestroyView() {
