@@ -1,5 +1,6 @@
 package com.priyo.news.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.priyo.coreui.mvi.MVIView
 import com.priyo.news.domain.model.Article
 import com.priyo.news.ui.adapter.NewsAdapter
@@ -25,19 +25,14 @@ import javax.inject.Inject
 class NewsListFragment @Inject constructor() :
     Fragment(),
     MVIView<NewsIntent, NewsState, NewsEffect> {
-    companion object {
-        const val TAG: String = "NewsListFragment"
-    }
+
     private var _binding: FragmentNewsListBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
-    // Member variables
-    private var mRecyclerView: RecyclerView? = null
-    private var mAdapter: NewsAdapter? = null
-
+    private val newsAdapter by lazy { NewsAdapter() }
     private val viewModel: NewsViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,44 +50,68 @@ class NewsListFragment @Inject constructor() :
             uiState = viewModel.uiState,
             uiEffect = viewModel.uiEffect,
         )
-        // setUpAdapter()
+        setAdapter()
         initOnClickListeners()
         triggerEvent(NewsIntent.Init)
     }
 
     private fun initOnClickListeners() {
-        // binding.buttonFirst.setOnClickListener {}
+        newsAdapter.onItemClick = { article, position ->
+            triggerEvent(
+                NewsIntent.ArticleItemCta(
+                    article,
+                    position,
+                ),
+            )
+        }
+        newsAdapter.onShareItemClick = { article ->
+            triggerEvent(
+                NewsIntent.ShareArticleCta(
+                    article,
+                ),
+            )
+        }
     }
 
     private fun showError() {
-        binding.errorAnim.visibility = View.VISIBLE
-        binding.errorAnim.playAnimation()
+        binding.errorAnim.apply {
+            visibility = View.VISIBLE
+            playAnimation()
+        }
     }
 
     private fun hideError() {
-        binding.errorAnim.cancelAnimation()
-        binding.errorAnim.visibility = View.GONE
+        binding.errorAnim.apply {
+            cancelAnimation()
+            visibility = View.GONE
+        }
     }
 
     private fun showProgressBar() {
-        binding.shimmerView.visibility = View.VISIBLE
-        binding.shimmerView.startShimmer()
+        binding.shimmerView.apply {
+            visibility = View.VISIBLE
+            startShimmer()
+        }
     }
 
     private fun hideProgressBar() {
-        binding.shimmerView.stopShimmer()
-        binding.shimmerView.visibility = View.GONE
+        binding.shimmerView.apply {
+            stopShimmer()
+            visibility = View.GONE
+        }
+    }
+
+    private fun setAdapter() {
+        binding.recyclerView.apply {
+            layoutManager = GridLayoutManager(context, 1)
+            adapter = newsAdapter
+        }
     }
 
     private fun setRecyclerView(list: List<Article>) {
-        // Initialize the RecyclerView.
-        mRecyclerView = binding.recyclerView
-        // Set the Layout Manager.
-        mRecyclerView?.layoutManager = GridLayoutManager(context, 1)
-
-        mAdapter = context?.let { it1 -> NewsAdapter(list, it1) }
-        mRecyclerView?.adapter = mAdapter
+        newsAdapter.setData(list)
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -103,17 +122,16 @@ class NewsListFragment @Inject constructor() :
             is NewsState.Init -> {
                 hideProgressBar()
                 hideError()
-                state.articles.let {
-                    mAdapter = NewsAdapter(it, requireContext())
-                    setRecyclerView(it)
-                }
+                setRecyclerView(state.articles)
             }
+
             is NewsState.Error -> {
                 showError()
                 hideProgressBar()
                 state.message.let { message ->
                 }
             }
+
             is NewsState.Idle -> {}
             is NewsState.Loading -> {
                 showProgressBar()
@@ -126,15 +144,25 @@ class NewsListFragment @Inject constructor() :
         when (effect) {
             is NewsEffect.NavigateToNewsDetails -> {
                 val action = NewsListFragmentDirections.actionNewsListFragmentToNewsDetailsFragment(
-                    authorName = effect.article.author,
-                    newsTitle = effect.article.title,
-                    newsDescription = effect.article.description,
-                    newsImageResource = effect.article.urlToImage,
-                    newsPublishTime = effect.article.publishedAt,
-                    content = effect.article.content,
+                    article = effect.article,
                 )
                 findNavController().navigate(action)
             }
+            is NewsEffect.ShareArticle -> {
+                shareArticle(effect.article)
+            }
+        }
+    }
+
+    private fun shareArticle(article: Article) {
+        Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(
+                Intent.EXTRA_TEXT,
+                "${article.title} \nDescription:${article.description} \nby- ${article.author} ${article.urlToImage}",
+            )
+        }.let {
+            startActivity(Intent.createChooser(it, "Share News With"))
         }
     }
 

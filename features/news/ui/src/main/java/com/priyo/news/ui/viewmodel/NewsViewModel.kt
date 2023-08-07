@@ -52,7 +52,12 @@ class NewsViewModel @Inject constructor(
                     NewsIntent.Init -> {
                         getTopNews()
                     }
-                    is NewsIntent.ArticleItemCta -> _uiEffect.emit(NewsEffect.NavigateToNewsDetails(it.article))
+                    is NewsIntent.ArticleItemCta -> _uiEffect.emit(
+                        NewsEffect.NavigateToNewsDetails(it.article),
+                    )
+                    is NewsIntent.ShareArticleCta -> _uiEffect.emit(
+                        NewsEffect.ShareArticle(it.article),
+                    )
                 }
             }
         }
@@ -89,17 +94,4 @@ class NewsViewModel @Inject constructor(
         }
     }
 
-    private fun hasInternetConnection() {
-		/*val connectivityManager = getApplication<Application>().getSystemService(
-			Context.CONNECTIVITY_SERVICE,
-		) as ConnectivityManager
-		val activeNetwork = connectivityManager.activeNetwork ?: return false
-		val capabilities = connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
-		return when {
-			capabilities.hasTransport(TRANSPORT_WIFI) -> true
-			capabilities.hasTransport(TRANSPORT_CELLULAR) -> true
-			capabilities.hasTransport(TRANSPORT_ETHERNET) -> true
-			else -> false
-		}*/
-    }
 }

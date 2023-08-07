@@ -7,6 +7,7 @@ import com.priyo.news.domain.model.Article
 
 sealed class NewsEffect : IEffect {
     data class NavigateToNewsDetails(val article: Article) : NewsEffect()
+    data class ShareArticle(val article: Article) : NewsEffect()
 }
 
 sealed class NewsState : IState {
@@ -19,4 +20,5 @@ sealed class NewsState : IState {
 sealed class NewsIntent : IIntent {
     object Init : NewsIntent()
     data class ArticleItemCta(val article: Article, val position: Int) : NewsIntent()
+    data class ShareArticleCta(val article: Article) : NewsIntent()
 }
