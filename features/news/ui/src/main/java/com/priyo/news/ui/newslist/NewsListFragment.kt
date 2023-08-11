@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.priyo.core.extentions.shareText
 import com.priyo.coreui.mvi.MVIView
 import com.priyo.news.domain.model.Article
 import com.priyo.news.ui.databinding.FragmentNewsListBinding
@@ -150,21 +151,13 @@ class NewsListFragment @Inject constructor() :
                 findNavController().navigate(action)
             }
             is NewsEffect.ShareArticle -> {
-                shareArticle(effect.article)
+                shareArticle(effect.sharingText)
             }
         }
     }
 
-    private fun shareArticle(article: Article) {
-        Intent(Intent.ACTION_SEND).apply {
-            type = "text/plain"
-            putExtra(
-                Intent.EXTRA_TEXT,
-                "${article.title} \nDescription:${article.description} \nby- ${article.author} ${article.urlToImage}",
-            )
-        }.let {
-            startActivity(Intent.createChooser(it, "Share News With"))
-        }
+    private fun shareArticle(text: String) {
+        startActivity(Intent.createChooser(Intent().shareText(text), "Share News With"))
     }
 
     override fun triggerEvent(onEvent: NewsIntent) {

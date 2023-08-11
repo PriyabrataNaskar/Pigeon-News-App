@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.priyo.core.domain.ErrorConstants.SOMETHING_WENT_WRONG
 import com.priyo.core.result.UiResult
 import com.priyo.coreui.mvi.IModel
+import com.priyo.news.domain.model.Article
 import com.priyo.news.domain.usecase.FetchTopNewsUseCase
 import com.priyo.news.ui.newslist.NewsEffect
 import com.priyo.news.ui.newslist.NewsIntent
@@ -55,9 +56,9 @@ class NewsViewModel @Inject constructor(
                     is NewsIntent.ArticleItemCta -> _uiEffect.emit(
                         NewsEffect.NavigateToNewsDetails(it.article),
                     )
-                    is NewsIntent.ShareArticleCta -> _uiEffect.emit(
-                        NewsEffect.ShareArticle(it.article),
-                    )
+                    is NewsIntent.ShareArticleCta -> {
+                        shareArticle(article = it.article)
+                    }
                 }
             }
         }
@@ -92,5 +93,10 @@ class NewsViewModel @Inject constructor(
             }
             _uiState.emit(NewsState.Idle)
         }
+    }
+
+    private suspend fun shareArticle(article: Article) {
+        val text = "${article.title} \nDescription:${article.description} \nby- ${article.author} ${article.urlToImage}"
+        _uiEffect.emit(NewsEffect.ShareArticle(text))
     }
 }
