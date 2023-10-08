@@ -1,6 +1,6 @@
 package com.priyo.news.domain.repository
 
-import com.priyo.core.result.NetworkResult
+import com.priyo.core.result.Result
 import com.priyo.news.domain.model.Article
 
 interface NewsRepository {
@@ -8,5 +8,5 @@ interface NewsRepository {
     suspend fun getTopNews(
         pageNumber: Int,
         countryCode: String,
-    ): NetworkResult<List<Article>>
+    ): Result<List<Article>>
 }

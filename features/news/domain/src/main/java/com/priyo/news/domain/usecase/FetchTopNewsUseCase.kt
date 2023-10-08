@@ -3,7 +3,9 @@ package com.priyo.news.domain.usecase
 import com.priyo.core.domain.ErrorConstants.SOMETHING_WENT_WRONG
 import com.priyo.core.domain.coroutine.CoroutineDispatcherProvider
 import com.priyo.core.domain.executeSafeCall
-import com.priyo.core.result.NetworkResult
+import com.priyo.core.result.DomainException
+import com.priyo.core.result.Error
+import com.priyo.core.result.Success
 import com.priyo.core.result.UiResult
 import com.priyo.news.domain.model.Article
 import com.priyo.news.domain.repository.NewsRepository
@@ -31,11 +33,22 @@ class FetchTopNewsUseCase @Inject constructor(
                                 countryCode,
                             )
                     ) {
-                        is NetworkResult.Success -> {
+                        is Success -> {
                             emit(UiResult.Success(result.data))
                         }
 
-                        is NetworkResult.Error -> {
+                        is Error -> {
+                            val errorMessage = result.message.orEmpty()
+                            emit(
+                                UiResult.Error(
+                                    Exception(
+                                        errorMessage,
+                                    ),
+                                ),
+                            )
+                        }
+
+                        is DomainException -> {
                             val errorMessage = result.throwable?.message.orEmpty()
                             emit(
                                 UiResult.Error(

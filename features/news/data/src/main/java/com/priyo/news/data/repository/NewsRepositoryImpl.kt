@@ -1,6 +1,6 @@
 package com.priyo.news.data.repository
 
-import com.priyo.core.result.NetworkResult
+import com.priyo.core.result.Result
 import com.priyo.news.data.source.remotedatasource.INewsRemoteDataSource
 import com.priyo.news.domain.model.Article
 import com.priyo.news.domain.repository.NewsRepository
@@ -13,7 +13,7 @@ class NewsRepositoryImpl @Inject constructor(
     override suspend fun getTopNews(
         pageNumber: Int,
         countryCode: String,
-    ): NetworkResult<List<Article>> {
+    ): Result<List<Article>> {
         return newsRemoteDataSource.getTopNews(
             pageNumber = pageNumber,
             countryCode = countryCode,
