@@ -25,7 +25,7 @@ class FetchTopNewsUseCase @Inject constructor(
     ): Flow<UiResult<List<Article>, Exception>> =
         flow {
             executeSafeCall(
-                block = {
+                execute = {
                     when (
                         val result =
                             repository.getTopNews(
@@ -60,7 +60,7 @@ class FetchTopNewsUseCase @Inject constructor(
                         }
                     }
                 },
-                error = {
+                onError = {
                     emit(UiResult.Error(it))
                 },
             )
