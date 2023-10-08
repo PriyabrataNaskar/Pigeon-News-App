@@ -6,12 +6,12 @@ import java.io.IOException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
-suspend inline fun <T> executeSafeCall(
-    block: () -> T,
-    error: (Exception) -> T,
+suspend fun <T> executeSafeCall(
+    execute: suspend () -> T,
+    onError: suspend (Exception) -> T,
 ): T {
     return try {
-        block.invoke()
+        execute()
     } catch (e: Exception) {
         val textRes = when (e) {
             is SocketTimeoutException -> Exception(
@@ -23,6 +23,6 @@ suspend inline fun <T> executeSafeCall(
             is IOException -> Exception(UNKNOWN_ERROR)
             else -> Exception(e.message.orEmpty())
         }
-        error.invoke(textRes)
+        onError(textRes)
     }
 }
