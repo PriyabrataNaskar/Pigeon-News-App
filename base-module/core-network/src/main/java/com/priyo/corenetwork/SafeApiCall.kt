@@ -1,18 +1,32 @@
 package com.priyo.corenetwork
 
+import com.priyo.corenetwork.result.NetworkError
+import com.priyo.corenetwork.result.NetworkException
+import com.priyo.corenetwork.result.NetworkResult
+import com.priyo.corenetwork.result.NetworkSuccess
+import retrofit2.HttpException
 import retrofit2.Response
 
-suspend fun <T> safeApiCall(
-    apiCallBlock: suspend () -> Response<T>,
-): Result<T> {
+suspend fun <T : Any> safeApiCall(
+    execute: suspend () -> Response<T>,
+): NetworkResult<T> {
     return try {
-        val response = apiCallBlock.invoke()
-        return if (response.isSuccessful) {
-            Result.success(response.body()!!)
+        val response = execute()
+        val body = response.body()
+        return if (response.isSuccessful && body != null) {
+            NetworkSuccess(body)
         } else {
-            Result.failure(Exception(response.errorBody()?.string().toString()))
+            NetworkError(
+                code = response.code(),
+                message = response.message(),
+            )
         }
+    } catch (e: HttpException) {
+        NetworkError(
+            code = e.code(),
+            message = e.message(),
+        )
     } catch (throwable: Throwable) {
-        Result.failure(throwable)
+        NetworkException(throwable)
     }
 }
