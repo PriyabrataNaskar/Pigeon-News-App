@@ -67,7 +67,7 @@ class NewsViewModel @Inject constructor(
     private suspend fun getTopNews() {
         viewModelScope.launch {
             _uiState.emit(NewsState.Loading)
-            fetchTopNewsUseCase.invoke(
+            fetchTopNewsUseCase(
                 1,
                 "us",
             ).collect {
