@@ -72,15 +72,19 @@ All the news are fetched from the news api. If you're cloning this project in yo
 - Build Src + Kotlin DSL: Easy to manage dependency in Multi-Module
 - Single Activity Architecture: Using only one activity to host all the fragments. This simplifies using nav-graph.
 - [Glide](https://github.com/bumptech/glide): Easy to load images over the internet
-- [Shimmer](https://github.com/facebook/shimmer-android): Library by Facebook for loading effect. Help to improve user-experience.
+- [Shimmer](https://github.com/facebook/shimmer-android): Library by Facebook for loading effect. Help to improve user experience.
 - [Retrofit](https://square.github.io/retrofit/): Simplify Network Calls on background thread
-- Lottie: Play animation on the error screen or when the Internet is Unavailable
+- Lottie: Play animation on the error screen or when the Internet is unavailable
 - [GSON Library](https://github.com/google/gson): Converting JSON to POJO/Kotlin Data Class & vice-versa
+
+## Resources
+
+- [Network Module with Retrfoit](https://proandroiddev.com/modeling-retrofit-responses-with-sealed-classes-and-coroutines-9d6302077dfe)
 
 ## Getting Started
 
 - To get started with this project, you'll need to clone the repository and open it in Android Studio.
-- Make sure you're using updated Android Studio to support Android Gradle Plugin 8 above.
+- Make sure you're using updated Android Studio to support Android Gradle Plugin 8 and above.
 - Create a file on root directory: ```credentials.properties``` and add ```NEWS_API_KEY= YOUR_API_KEY```
 - Sync & Build Project
 - You should be able to build the APK on your local machine
@@ -93,7 +97,7 @@ This project can be used as a template for other developers who want to learn Mu
 
 If you'd like to contribute to this project, please feel free to submit a pull request. We welcome contributions from all developers who are interested in learning more about Multi-module with Clean Architecture.
 
-### Find this project useful ? ❤️
+### Find this project useful? ❤️
 
 - Support it by clicking the ⭐ button on the upper right of this page. ✌️
 
