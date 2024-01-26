@@ -79,7 +79,13 @@ All the news are fetched from the news api. If you're cloning this project in yo
 
 ## Resources
 
-- [Network Module with Retrfoit](https://proandroiddev.com/modeling-retrofit-responses-with-sealed-classes-and-coroutines-9d6302077dfe)
+- [Securing API Key](https://proandroiddev.com/hide-your-api-keys-in-android-d4c52446d0bc)
+- [Level Up Dependency Management with BuildSrc](https://www.linkedin.com/posts/priyabrata-naskar_improve-gradle-script-with-build-src-activity-7088551762835443714-tEN6?utm_source=share&utm_medium=member_desktop)
+- [Gradle Groovy to DSL Migration](https://www.linkedin.com/posts/priyabrata-naskar_gradle-with-kotlin-dsl-activity-7091094341414268928-EiFT?utm_source=share&utm_medium=member_desktop)
+- [Sharing Gradle Configuration on Multi-module](https://www.linkedin.com/posts/priyabrata-naskar_reduce-50-gradle-script-activity-7093953460017991680-nZ2j?utm_source=share&utm_medium=member_desktop)
+- [Kotlin Flow](https://youtu.be/fSB6_KE95bU?si=_hoOPIkeMFxiiA9i)
+- [Retrofit with Sealed Classes](https://proandroiddev.com/modeling-retrofit-responses-with-sealed-classes-and-coroutines-9d6302077dfe)
+- [App Modulation](https://github.com/android/nowinandroid/blob/main/docs/ModularizationLearningJourney.md)
 
 ## Getting Started
 
