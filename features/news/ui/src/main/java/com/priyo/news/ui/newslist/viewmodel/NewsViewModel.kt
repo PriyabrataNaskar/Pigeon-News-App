@@ -7,6 +7,7 @@ import com.priyo.core.result.UiResult
 import com.priyo.coreui.mvi.IModel
 import com.priyo.news.domain.model.Article
 import com.priyo.news.domain.usecase.FetchTopNewsUseCase
+import com.priyo.news.ui.analytics.NewsListEventsLogger
 import com.priyo.news.ui.newslist.NewsEffect
 import com.priyo.news.ui.newslist.NewsIntent
 import com.priyo.news.ui.newslist.NewsState
@@ -28,6 +29,7 @@ import javax.inject.Inject
 @HiltViewModel
 class NewsViewModel @Inject constructor(
     private val fetchTopNewsUseCase: FetchTopNewsUseCase,
+    private val newsListEventsLogger: NewsListEventsLogger,
 ) : ViewModel(), IModel<NewsState, NewsIntent, NewsEffect> {
 
     override val intents: Channel<NewsIntent> =
@@ -50,26 +52,32 @@ class NewsViewModel @Inject constructor(
         viewModelScope.launch {
             intents.consumeAsFlow().collect {
                 when (it) {
-                    NewsIntent.Init -> {
-                        getTopNews()
-                    }
-                    is NewsIntent.ArticleItemCta -> _uiEffect.emit(
-                        NewsEffect.NavigateToNewsDetails(it.article),
-                    )
-                    is NewsIntent.ShareArticleCta -> {
-                        shareArticle(article = it.article)
-                    }
+                    NewsIntent.Init -> getTopNews()
+                    is NewsIntent.ArticleItemCta -> onClickArticleItem(it.article)
+                    is NewsIntent.ShareArticleCta -> onShareArticleCta(it.article)
                 }
             }
         }
+    }
+
+    private suspend fun onClickArticleItem(article: Article) {
+        newsListEventsLogger.logArticleOpen(article)
+        _uiEffect.emit(
+            NewsEffect.NavigateToNewsDetails(article),
+        )
+    }
+
+    private suspend fun onShareArticleCta(article: Article) {
+        shareArticle(article = article)
+        newsListEventsLogger.logArticleShare(article)
     }
 
     private suspend fun getTopNews() {
         viewModelScope.launch {
             _uiState.emit(NewsState.Loading)
             fetchTopNewsUseCase(
-                1,
-                "us",
+                1, //todo: remove hardcoding
+                "us", //todo: remove hardcoding
             ).collect {
                 when (it) {
                     is UiResult.Error -> {
@@ -96,7 +104,7 @@ class NewsViewModel @Inject constructor(
     }
 
     private suspend fun shareArticle(article: Article) {
-        val text = "${article.title} \nDescription:${article.description} \nby- ${article.author} ${article.urlToImage}"
+        val text = "${article.title} \nDescription:${article.description} \nby- ${article.author} ${article.urlToImage}" //todo: remove hardcoding
         _uiEffect.emit(NewsEffect.ShareArticle(text))
     }
 }
