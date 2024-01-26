@@ -29,6 +29,7 @@ dependencies {
         implementation(project(mapOf("path" to core)))
         implementation(project(mapOf("path" to coreUi)))
         implementation(project(mapOf("path" to coreNetwork)))
+        implementation(project(mapOf("path" to analytics)))
         implementation(project(mapOf("path" to newsData)))
         implementation(project(mapOf("path" to newsDomain)))
         implementation(project(mapOf("path" to newsUi)))
