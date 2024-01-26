@@ -72,4 +72,9 @@ object Dependencies {
     object Kotlin {
         const val kotlin = "1.8.0"
     }
+
+    object Analytics {
+        private const val mixpanelVersion = "7.3.2"
+        const val mixpanel = "com.mixpanel.android:mixpanel-android:$mixpanelVersion"
+    }
 }
